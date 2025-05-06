@@ -106,11 +106,16 @@ function CreateTrip() {
     }
 
     setLoading(true);
+    toast("Please wait... we are working to generate your dream trip.");
+    
+
     const FINAL_PROMPT = AI_PROMPT
       .replace("{destination}", formData.destination)
       .replace("{days}", formData.days)
       .replace("{travelWith}", formData.travelWith)
       .replace("{budget}", formData.budget);
+
+     
 
     
 
@@ -245,8 +250,9 @@ function CreateTrip() {
         disabled={loading}
         onClick={OnGenerateTrip}>
           {loading?
-        <AiOutlineLoading3Quarters  className="h-7 w-7 animate-spin"/>: 'Generate Trip'  
+        <AiOutlineLoading3Quarters  className="h-7 w-7 animate-spin" />: 'Generate Trip'  
         }
+        
           </Button>
       </div>
 
@@ -254,7 +260,7 @@ function CreateTrip() {
         <DialogContent>
           <DialogHeader>
             <DialogDescription>
-              <img src="logo.svg" style={{ width: "110px", height: "auto", marginLeft: -23 }} />
+              <img src="logo.svg" style={{ width: "102px", height: "auto", marginLeft: -12}} />
               <h2 className="font-bold text-lg">Sign in With Google</h2>
               <p>Sign in to the App with a Google authentication securely</p>
               <Button
